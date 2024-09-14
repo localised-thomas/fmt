@@ -1,0 +1,37 @@
+@import "../../styles.scss";
+
+.submit-button-container {
+  margin: 0 $standard-spacing;
+
+  button {
+    width: 100%;
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: $xx-large-spacing;
+}
+
+.main-container {
+  width: 100%;
+}
+
+app-timechart {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1300px) {
+  :host {
+    flex-direction: initial;
+  }
+
+  app-timechart {
+    width: 30%;
+  }
+
+  .main-container {
+    width: 70%;
+  }
+}

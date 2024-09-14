@@ -1,0 +1,204 @@
+@import "../../../../styles.scss";
+
+$copy-button-background: #337ab7;
+$delete-button-background: #b73333;
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $secondary-background;
+    border-radius: 8px;
+    padding: 0 $standard-spacing $xxxxx-large-spacing $standard-spacing;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
+button.copy {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-radius: 0 0 8px 8px;
+  padding: 15px 0;
+  margin: 0;
+  border: none;
+  background: $copy-button-background;
+  color: $secondary-text;
+  font-weight: 600;
+  font-size: 1em;
+  &:active {
+    background: #49abff;
+  }
+}
+
+button.delete {
+  background: $delete-button-background;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  -webkit-transition: ease background 0.3s;
+  transition: ease background 0.3s;
+  &:hover {
+    background: darken($delete-button-background, 5%);
+  }
+}
+
+.day-container {
+  padding: 15px 0px 20px 0;
+
+  ::ng-deep .mat-select-value {
+    display: inline !important;
+    width: auto !important;
+    color: $secondary-text;
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+
+  .mat-form-field-label,.mat-form-field-label.mat-focused,
+  .mat-form-field.mat-focused.matform-field-should-float {
+      color: red;
+  }
+
+  // TODO remove usage of ng-deep
+  ::ng-deep .mat-form-field-infix {
+    width: auto;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+}
+
+::ng-deep .mat-form-field {
+    .mat-form-field-label {
+        color: $secondary-text;
+    }
+    .mat-select-value-text {
+      color: $secondary-text;
+    }
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-ripple {
+        background-color: #49abff !important;
+    }
+}
+
+::ng-deep .mat-select-arrow {
+  color: #337ab7;
+}
+
+// error
+
+.mat-error {
+  color: $error;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
+  background: $error;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: $error;
+}
+
+// mat form input
+
+.mat-form-field-prefix .mat-icon,
+.mat-form-field-suffix .mat-icon {
+  color: rgb(210, 210, 210);
+}
+
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+  padding: 0.5rem;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.5rem;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background: $border-colour;
+}
+
+// mat-progress-bar
+
+.mat-progress-bar-fill::after {
+  background: $primary;
+}
+
+// mat-checkbox
+
+.mat-checkbox {
+  padding-bottom: 1.25em;
+}
+
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: $primary;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background: $primary;
+}
+
+// mat-tabs overrides
+
+.mat-tab-nav-bar,
+.mat-tab-header {
+  border: none;
+  border-bottom: $border;
+}
+
+.mat-tab-label .mat-tab-label-content {
+  min-width: initial;
+  color: $secondary-text;
+  font-weight: 400;
+}
+
+.mat-tab-label {
+  &:hover {
+    background: $secondary-background;
+  }
+  &.mat-tab-label-active {
+    font-weight: 500;
+    color: $secondary-text;
+    opacity: 1;
+  }
+}
+
+
+.mat-tab-header-pagination.mat-tab-header-pagination-disabled {
+  display: none !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background: $primary;
+}
+
+.mat-tab-body-content {
+  margin-top: 10px;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background: $primary;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: $secondary-text;
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.50);
+}

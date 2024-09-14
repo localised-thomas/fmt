@@ -1,0 +1,12 @@
+<ng-select #projectSelector class="custom" [multiple]="true" [(ngModel)]="selectedProjects" (add)="onAdd($event)" (remove)="onRemove($event)" (clear)="onClear()">
+  <ng-option *ngFor="let project of projectData" [value]="project">
+    <span [style.background-color]="project.colour"></span>
+    {{ project.code }} - {{project.name}}
+  </ng-option>
+
+  <ng-template ng-label-tmp let-item="item">
+    <div class="select-pill" [style.background-color]="item.colour">
+      <p>{{ item.name }}</p>
+    </div>
+  </ng-template>
+</ng-select>

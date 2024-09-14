@@ -1,0 +1,55 @@
+
+
+<div class="flex-container v-center">
+  <mat-button-toggle-group [value]="selectedSummaryView" (change)="onViewSelectionChange($event)" name="viewType" aria-label="View Type">
+    <mat-button-toggle [value]="summaryViewTypes.DAY">Day</mat-button-toggle>
+    <mat-button-toggle [value]="summaryViewTypes.PROJECT">Project</mat-button-toggle>
+  </mat-button-toggle-group>
+  <p class="total">Total hours: {{weeklyTimeSpent}}</p>
+  <mat-checkbox class="right-align" [(ngModel)]="displayCodes">Display codes</mat-checkbox>
+</div>
+
+
+<ng-container *ngIf="selectedSummaryView === summaryViewTypes.DAY">
+  <div class="days-container flex-container">
+    <ng-container *ngFor="let day of weekdays">
+      <div class="day flex-container flex-column flex-1" *ngIf="summary[day].displayTimeSpent">
+        <div>
+          <h2>{{ day }}</h2>
+          <p>{{ summary[day].displayTimeSpent }}</p>
+        </div>
+
+        <div class="summary-container" *ngFor="let projectSummary of summary[day].summaries" [style.background-color]="projectSummary.colour">
+          <div class="flex-container v-center">
+            <h3><span *ngIf="displayCodes">{{ projectSummary.code }} - </span>{{ projectSummary.name }}</h3>
+            <h3 class="right-align">{{ projectSummary.displayTimeSpent }}</h3>
+          </div>
+          <div *ngFor="let projectActivity of projectSummary.activities">
+            <p><span *ngIf="displayCodes">{{projectActivity.code}} - </span>{{projectActivity.name}}: {{projectActivity.displayTimeSpent}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="selectedSummaryView === summaryViewTypes.PROJECT">
+  <ng-container *ngFor="let project of data.projects">
+    <div *ngIf="project.timesheets?.length" class="project-container" [style.background-color]="project.colour">
+      <h2>{{ project.name }} <span *ngIf="displayCodes">({{ project.code }})</span></h2>
+      <div *ngFor="let timesheet of project.timesheets" class="table">
+        <div class="start-date">{{ timesheet.startDate.format("dddd") }} - {{ timesheet.startDate.format("DD/MM/YY") }}</div>
+        <div *ngIf="displayCodes" class="code">{{ timesheet.task.code }}</div>
+        <div class="hours">{{ timesheet.timeSpent }}</div>
+        <div class="memo">{{ timesheet.memo }}</div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+
+<div class="button-container flex-container">
+  <button class="flex-1" (click)="onCancelClicked()" mat-button mat-dialog-close>Cancel</button>
+  <button class="flex-1" (click)="onSubmitClicked()" mat-button mat-dialog-close>Submit</button>
+</div>

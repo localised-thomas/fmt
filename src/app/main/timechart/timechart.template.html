@@ -1,0 +1,25 @@
+<div *ngIf="totalHours > 0" class="chart-container">
+  <div class="chart-inner-container" [ngClass]="{'chart-error': totalHours >= 41, 'chart-correct': totalHours == 40}">
+    <ngx-charts-bar-vertical-stacked
+      [results]="weekdayData"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [customColors]="projectColours"
+      [legend]="false"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [animations]="animations"
+      style="fill: #FFFFFF;">
+      <ng-template #tooltipTemplate let-model="model">
+          <div class="tooltip">
+            {{model.tooltip}}
+          </div>
+      </ng-template>
+    </ngx-charts-bar-vertical-stacked>
+  </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+
+footer {
+  margin: $standard-spacing;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media (min-width: 960px) {
+  footer {
+    display: flex;
+  }
+
+  ul {
+    margin-left: auto;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: $small-spacing;
+  }
+
+}

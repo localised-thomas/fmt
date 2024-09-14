@@ -1,0 +1,17 @@
+  <div class="project-container" [style.background-color]="project.colour">
+    <h2>{{ project.code }} - {{ project.name }}</h2>
+
+    <div class="timesheet-container">
+      <app-timesheet-form
+        *ngFor="let timesheet of project.timesheets"
+        [timesheet]="timesheet"
+        [taskData]="taskData"
+        (onFormDelete)="onFormDelete($event)"
+        (onFormCopy)="onFormCopy($event)">
+      </app-timesheet-form>
+
+      <button mat-fab (click)="addNewTimesheet()">
+          <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>

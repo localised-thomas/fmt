@@ -1,0 +1,42 @@
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="day-container flex-container v-center">
+      <div class="flex-1">
+        <mat-form-field>
+          <mat-select formControlName="startDate">
+            <mat-option *ngFor="let day of weekdays" [value]="day">
+              {{ day.format("dddd") }} - {{ day.format("DD/MM/YY") }}
+            </mat-option>
+            <mat-select-trigger>
+               {{ form.controls['startDate'].value.format('dddd') }}
+            </mat-select-trigger>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button (click)="onDelete()" class="delete" mat-icon-button aria-label="Remove timesheet entry">
+        <mat-icon>
+          close
+        </mat-icon>
+      </button>
+    </div>
+
+    <mat-form-field>
+      <mat-select #codeSelector placeholder="Code" name="Code" formControlName="task">
+        <mat-option *ngFor="let task of taskData" [value]="task" >{{ task.code }} - {{ task.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('task').invalid">Code required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea placeholder="Memo" matInput type="text" name="Memo" formControlName="memo"></textarea>
+      <mat-error *ngIf="form.get('memo').invalid">Memo required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input placeholder="Timespent (hours)" matInput type="number" name="Time" formControlName="timeSpent" min="1" max="12">
+      <mat-error *ngIf="form.get('timeSpent').invalid">Time required</mat-error>
+    </mat-form-field>
+
+    <button class="copy" (click)="onCopy()" mat-button>Copy</button>
+</form>
+

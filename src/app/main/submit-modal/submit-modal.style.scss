@@ -1,0 +1,93 @@
+@import "../../../styles.scss";
+
+:host {
+  background: $background;
+  color: $secondary-text;
+}
+
+// TODO remove ng-deep usage
+::ng-deep .mat-checkbox-frame {
+  border-color: $primary;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background: #337ab7;
+}
+
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #337ab7 !important; // TODO remove all ng-deep and important usage
+}
+
+::ng-deep .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #337ab7 !important; // TODO remove all ng-deep and important usage
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr 3fr;
+  grid-template-rows: 1fr;
+  gap: 0px 2em;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "start-date code hours memo";
+}
+
+.start-date { grid-area: start-date; }
+
+.code { grid-area: code; }
+
+.hours { grid-area: hours; }
+
+.memo { grid-area: memo; }
+
+h2 {
+  text-transform: capitalize;
+}
+
+.days-container {
+  margin-top: $standard-spacing;
+
+  .day {
+    margin: 0 $small-spacing;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.total {
+  margin-left: $standard-spacing;
+  font-weight: 800;
+}
+
+.summary-container, .project-container {
+  display: block;
+  padding: $standard-spacing;
+  margin: $small-spacing 0 $small-spacing 0;
+  color: $secondary-text;
+  border-radius: 8px;
+
+  p {
+    white-space: nowrap;
+  }
+
+  h3:first-of-type {
+    margin-right: $small-spacing;
+  }
+}
+
+.project-container {
+  margin: $standard-spacing 0;
+}
+
+.button-container {
+  margin-top: $small-spacing;
+  button:first-of-type {
+    margin-right: $standard-spacing;
+  }
+}

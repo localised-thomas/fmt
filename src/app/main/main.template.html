@@ -1,0 +1,14 @@
+
+<div class="main-container">
+  <div *ngFor="let project of selectedProjects">
+    <app-project [project]="project"></app-project>
+  </div>
+
+  <app-project-selector *ngIf="projectData" [projectData]="projectData"></app-project-selector>
+
+  <div class="submit-button-container">
+    <button (click)="onReviewClicked()" *ngIf="selectedProjects && selectedProjects.length" mat-button>Review</button>
+  </div>
+</div>
+
+<app-timechart></app-timechart>

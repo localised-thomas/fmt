@@ -1,1 +1,359 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+$primary: #ffffff;
+$background: #282828;
+$secondary-background: #373737;
+$active: darken($primary, 5%);
+$accent: lighten($primary, 10%);
+$error: #F23F3F;
+
+$primary-text: #1e1e1e;
+$secondary-text: #ffffff;
+
+$border-colour: #e8e8e8;
+$border: 1px solid $border-colour;
+
+$x-small-spacing: 5px;
+$small-spacing: 10px;
+$standard-spacing: 20px;
+$large-spacing: 25px;
+$x-large-spacing: 30px;
+$xx-large-spacing: 40px;
+$xxx-large-spacing: 50px;
+$xxxx-large-spacing: 60px;
+$xxxxx-large-spacing: 80px;
+
+$bold: 600;
+
+@mixin hover {
+  &:hover {
+    background: $primary;
+    color: $secondary-text;
+  }
+}
+
+@mixin focus {
+  @include no-focus;
+  &:focus {
+    box-shadow: 0px 0px 5px 1px rgba(139, 169, 255, 1);
+  }
+}
+
+@mixin no-focus {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  color: $primary-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  @include no-focus;
+  display: inline-block;
+  font-size: 1.9rem;
+  font-weight: 600;
+  background: $background;
+  z-index: 1;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+a {
+  color: #1e1e1e;
+}
+
+ul {
+  list-style-type: none;
+}
+
+main {
+  width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+button {
+  background: #337ab7;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: flex;
+}
+
+.flex-container .center {
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.flex-container.v-center {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.flex-container .right-align {
+  margin-left: auto;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.flex-2 {
+  -webkit-box-flex: 2;
+  flex: 2;
+}
+
+.flex-3 {
+  -webkit-box-flex: 3;
+  flex: 3;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+// Document layout
+html, body {
+    color: #ffffff;
+    background: #282828;
+    background-color: #282828;
+}
+
+// Fonts
+h1 {
+    display: inline-block;
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+// Form
+.form {
+    position: relative;
+    background: #373737;
+    border-radius: 8px;
+    margin: 0 20px;
+}
+
+.form-body {
+    padding: 0 25px;
+    margin: 20px 10px;
+}
+
+// Inputs
+input.form-control {
+    background-color: #282828;
+    color: #a8a8a8;
+}
+
+.remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1;
+    border-radius: 0 8px 0 0;
+}
+
+.remove-button, .btn-link, .ui-select-match-close {
+    color: darkred;
+    outline: none;
+    opacity: 1;
+
+    &:hover {
+        color: red;
+        opacity: 1;
+    }
+
+    &:focus {
+        color: red;
+        outline: none;
+    }
+
+    &:focus:active {
+        color: red;
+        outline: none;
+    }
+}
+
+.copy-button {
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+// select
+.form-control, .ui-select-container {
+    background-color: #282828;
+    border: none;
+    width: 200px;
+}
+
+.ui-select-multiple {
+    background-color: #373737;
+    width: auto;
+}
+
+.dropdown-menu {
+    color: #ffffff;
+    background-color: #373737;
+}
+
+// select dropdown items
+.ui-select-bootstrap .ui-select-choices-row>a {
+    color: #ffffff;
+    &:hover {
+        background-color: #2d2c2c;
+        color: #ffffff;
+    }
+}
+
+// select active item
+.ui-select-bootstrap .ui-select-choices-row.active>a {
+    background: #2d2c2c;
+}
+
+// select item
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+    background-color: #2c2c2c;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2em;
+    margin: 10px 5px 10px 5px;
+    padding: 0;
+}
+
+// select pill
+.select-pill {
+    padding: 4px 6px;
+    border-radius: 4px;
+    background-blend-mode: darken;
+    padding-right: 25px;
+}
+
+// select close icon
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+    position: absolute;
+    right: 5px;
+    text-shadow: none;
+}
+
+// select button hover
+.btn-default {
+    color: #a8a8a8;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background-color: #282828;
+}
+
+// select button focus
+.btn-default-focus {
+    background-color: #282828;
+    color: #ffffff;
+}
+
+// select button hover
+.btn-default:hover {
+    color: #a8a8a8;
+    background-color: #282828;
+    border: 1px solid #828282;
+}
+
+.timesheet-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.timesheet-project-container {
+    padding: 20px;
+    color: white;
+    margin: 20px 0;
+    border-radius: 8px;
+    h2 {
+        margin: 0;
+    }
+    h3 {
+        color: #828282;
+    }
+}
+
+.code-container {
+    padding: 20px 0;
+    color: white;
+    border-radius: 8px;
+}
+
+.mat-dialog-container {
+  background: $background;
+  color: $primary-text;
+  min-width: 30vw;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

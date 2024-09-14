@@ -1,0 +1,66 @@
+@import "../../../styles.scss";
+
+:host {
+  display: block;
+  margin: $standard-spacing;
+}
+
+// TODO remove ng-deep stlying and !important usage
+.ng-select.custom ::ng-deep .ng-select-container  {
+  height: 3em;
+  background: $secondary-background;
+  border: none;
+}
+
+.ng-select.custom ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  position: relative;
+}
+
+.ng-select.ng-select-multiple.custom ::ng-deep .ng-select-container .ng-value-container .ng-value {
+  background: transparent;
+}
+
+.custom .ng-select-container {
+  background: purple !important;
+}
+
+.ng-select .ng-select-container {
+  background-color: aqua !important;
+}
+
+.ng-select .ng-select-container {
+  background: green !important;
+}
+
+.ng-select.custom .ng-select-container {
+  background: red !important;
+  color: red !important;
+}
+
+.ng-select.custom .ng-select-container  {
+    background: red !important;
+}
+
+.ng-select .custom .ng-select-container {
+    background: red !important;
+}
+
+.select-pill {
+  padding: $x-small-spacing $x-large-spacing;
+  color: $primary;
+}
+
+.ng-select.custom .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  position: relative;
+}
+
+span {
+  background-color: rgb(99, 181, 152);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  height: 100%;
+  width: 0.5em;
+}
+
